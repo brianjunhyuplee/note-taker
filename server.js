@@ -54,12 +54,14 @@ app.post("/api/notes",function(req,res){
   //   var Notes = getNotes();
   //   Notes.filter(note => note.body.id !== res.body.id)
   // }
-  app.delete("api/notes/547",function(req,res){
+  app.delete("api/notes/:id",function(req,res){
     console.log("in app delete");
     console.log("about to filter");
     var Notes = getNotes();
+    // this gets everything except selected id
     Notes.filter(note => note.body.id !== req);
-
+    // this gets only id
+    // Notes.filter(note => note.body.id === req);
     // res.json(Notes[0]);
   })
 });
